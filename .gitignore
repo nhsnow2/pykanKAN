@@ -13,3 +13,6 @@ figures
 molecule
 applications
 experiments
+pykan.egg-info/
+**/model
+**/figures
