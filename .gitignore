@@ -16,3 +16,5 @@ experiments
 pykan.egg-info/
 **/model
 **/figures
+stdout.*
+stderr.*

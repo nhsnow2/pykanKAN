@@ -59,16 +59,19 @@ test_YS = Y_scaler.transform(test_Y)
 
 # --- Conversion to Torch tensors
 print("Converting to Torch tensors:")
-train_XST = torch.tensor(train_XS, dtype=torch.float32)
-train_YST = torch.tensor(train_YS, dtype=torch.float32)
-test_XST = torch.tensor(test_XS, dtype=torch.float32)
-test_YST = torch.tensor(test_YS, dtype=torch.float32)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Device:{device}")
+
+train_XST = torch.tensor(train_XS, dtype=torch.float32, device=device)
+train_YST = torch.tensor(train_YS, dtype=torch.float32, device=device)
+test_XST = torch.tensor(test_XS, dtype=torch.float32, device=device)
+test_YST = torch.tensor(test_YS, dtype=torch.float32, device=device)
 
 DATASET = {'train_input':train_XST, 'test_input':train_YST, 'train_label':test_XST, 'test_label':test_YST}
 
 # --- KAN Model ---------------------------------------------------------------------------------------------------------------
 print(f"Initializing Model:\t(t={timer.time()-start_time})")
-model = kan.KAN([train_XST.shape[1], train_XST.shape[1], train_YST.shape[1]], grid=2, k=3, auto_save=True)
+model = kan.KAN([train_XST.shape[1], train_XST.shape[1], train_YST.shape[1]], grid=2, k=3, auto_save=True, device=device)
 print(f"Incorporating data size:\t(t={timer.time()-start_time})")
 model(DATASET['train_input'])
 print(f"Training Model...")
