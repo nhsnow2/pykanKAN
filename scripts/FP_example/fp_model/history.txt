@@ -1,0 +1,10 @@
+### Round 0 ###
+init => 0.0
+0.0 => fit => 0.1
+0.1 => prune_node => 0.2
+0.2 => prune_node => 0.3
+0.3 => fit => 0.4
+0.4 => fit => 0.5
+0.5 => fit => 0.6
+0.6 => prune_node => 0.7
+0.7 => auto_symbolic => 0.8

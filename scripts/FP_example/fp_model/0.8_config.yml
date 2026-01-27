@@ -1,0 +1,89 @@
+affine_trainable: false
+auto_save: true
+base_fun_name: identity
+ckpt_path: ./fp_model
+device: cuda:0
+grid: 8
+grid_eps: 0.02
+grid_range:
+- -1
+- 1
+k: 3
+mult_arity: 2
+round: 0
+sb_trainable: true
+sp_trainable: true
+state_id: 8
+symbolic.funs_name.0:
+- - '0'
+  - '0'
+  - x
+  - x
+  - '0'
+  - x
+  - '0'
+  - '0'
+  - x
+  - x
+  - x
+  - x
+  - '0'
+- - x
+  - x
+  - x
+  - x
+  - x^0.5
+  - x
+  - x
+  - '0'
+  - '0'
+  - x
+  - x
+  - '0'
+  - x
+- - x
+  - x
+  - '0'
+  - x
+  - '0'
+  - x
+  - '0'
+  - x
+  - x
+  - '0'
+  - x
+  - x
+  - x
+symbolic.funs_name.1:
+- - exp
+  - x
+  - x
+- - x
+  - '0'
+  - '0'
+- - exp
+  - x
+  - x
+symbolic.funs_name.2:
+- - x
+  - '0'
+  - x
+- - x
+  - '0'
+  - x
+- - '0'
+  - x
+  - x
+- - x
+  - x
+  - x
+symbolic_enabled: true
+width:
+- - 13
+  - 0
+- - 3
+  - 0
+- - 3
+  - 0
+- - 4
+  - 0
